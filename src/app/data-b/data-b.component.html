@@ -1,0 +1,4 @@
+<p>data-b works!</p>
+<input type="text" [(ngModel)]="inputTexte" required />
+<p>{{ inputTexte }}</p>
+<button [disabled]="inputTexte == ''" (click)="onClick($event)">Reset</button>
