@@ -1,26 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { OneFriendComponent } from './one-friend/one-friend.component';
 
 @Component({
-  selector: 'app-list-friend',
-  imports: [OneFriendComponent],
+  selector: 'app-list-friends',
+  imports: [FormsModule, NgIf, OneFriendComponent],
   templateUrl: './list-friend.component.html',
   styleUrl: './list-friend.component.css',
 })
-export class ListFriendComponent implements OnInit {
-  inputValue: string = '';
-  boutton: boolean = false;
-  ami: string = 'Aucun Ami';
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.boutton = !this.boutton;
-    }, 3000);
+export class ListFriendComponent {
+  listFriendsCreated: boolean = false;
+  listFriendsAuth: boolean = false;
+  listFriendsDisplay: boolean = false;
+  listFriendsCreationStatus: string = '🥶 Aucun ami ...';
+  listFriendsInputText: string = '';
+  constructor() {
+    // setTimeout(() => {
+    //   this.listFriendsAuth = true;
+    // }, 10000);
   }
 
-  onKey(event: any) {
-    this.inputValue = event.target.value;
+  onAddingFriends(): void {
+    this.listFriendsCreationStatus = `🥳 Votre ami (${this.listFriendsInputText}) a été ajouté !`;
+    this.listFriendsCreated = !this.listFriendsCreated;
   }
-  onClick(event: any) {
-    this.ami = 'Ami Ajouté';
+  onUpdateFriendsList(eventInput: Event): void {
+    console.log(eventInput);
+    console.log((<HTMLInputElement>eventInput.target).value);
+    this.listFriendsInputText = (<HTMLInputElement>eventInput.target).value;
   }
 }
