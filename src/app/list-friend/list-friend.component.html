@@ -1,2 +1,7 @@
 <button [disabled]="boutton">Boutton</button>
+<input type="text" (keyup)="onKey($event)" />
+<br />
+<p>{{ inputValue }}</p>
+<button (click)="onClick($event)">Boutton</button>
+<p>{{ ami }}</p>
 <app-one-friend></app-one-friend>
