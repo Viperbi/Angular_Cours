@@ -1,4 +1,9 @@
 <p>data-b works!</p>
 <input type="text" [(ngModel)]="inputTexte" required />
-<p>{{ inputTexte }}</p>
-<button [disabled]="inputTexte == ''" (click)="onClick($event)">Reset</button>
+<p *ngIf="amiCreated; else noAmi">Vous avez ajouté {{ ami }} en ami.</p>
+<br />
+<ng-template #noAmi> Vous n'avez pas d'ami, ajoutez en un ! </ng-template>
+<br />
+<button [disabled]="inputTexte === ''" (click)="onClick()">
+  Ajouter en ami
+</button>
