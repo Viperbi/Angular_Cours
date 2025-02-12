@@ -4,6 +4,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ListFriendComponent } from './list-friend/list-friend.component';
 import { DataBComponent } from './data-b/data-b.component';
 import { DirectivesComponent } from './directives/directives.component';
+import { BlogControlCenterComponent } from './blog-control-center/blog-control-center.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'list', component: ListFriendComponent },
   { path: 'dataB', component: DataBComponent },
   { path: 'dir', component: DirectivesComponent },
+  { path: 'blog', component: BlogControlCenterComponent },
 ];
