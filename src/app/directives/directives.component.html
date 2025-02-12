@@ -1,0 +1,19 @@
+<p>directives works!</p>
+<button class="btn btn-success ms-5" (click)="addRow()">
+  Afficher détails
+</button>
+{# Le ngFor parcours le tableau en gardant en mémoire l'index de la case ou il se trouve à chaque itération #}
+<div *ngFor="let temp of tableau; let i = index">
+  <p
+    {# Le ngIf permet de déclencher l'affichage au changement de la variable details lors du clic sur le bouton #}
+    *ngIf="details === true"
+    {# Le ngClass permet d'appliquer soit la class "long" soit la class "court" en fonction de l'index ou l'on se trouve dans le tableau #}
+    [ngClass]="{
+      long: i >= 5,
+      court: i < 5
+    }"
+    [ngStyle]="{ 'background-color': i < 5 ? 'white' : 'blue' }"
+  >
+    Voici la case {{ tableau[i] }} du tableau
+  </p>
+</div>
